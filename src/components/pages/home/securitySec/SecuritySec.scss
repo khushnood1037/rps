@@ -1,0 +1,177 @@
+@use "../../../../assets/theme/_var.scss" as *;
+
+.securitySec {
+    padding: 11rem 0rem 6rem;
+
+    @media (max-width: 1679px) {
+        padding: 8rem 0 4rem;
+    }
+
+    @media (max-width: 1399px) {
+        padding: 4rem 0 3rem;
+    }
+
+    @media (max-width: 575px) {
+        padding: 3rem 0 2rem;
+    }
+
+    &_card {
+        padding: 3.6rem;
+        border-radius: 2.3rem;
+        position: relative;
+        background: $strokeGradientCard;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        @media (max-width: 1365px) {
+            padding: 3rem 2.5rem;
+        }
+
+        @media (max-width: 767px) {
+            padding: 2rem 1.5rem;
+        }
+
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            border-radius: 2.3rem;
+            z-index: -1;
+            background: $yellowGradientCard;
+        }
+
+        &_content {
+            position: relative;
+            padding-left: 8rem;
+
+            @media (max-width: 1365px) {
+                padding-left: 6rem;
+            }
+
+            @media (max-width: 767px) {
+                padding-left: 4rem;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4.8rem;
+                height: 4.8rem;
+                background-image: url("../../../../assets/images/downArrow.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+
+                @media (max-width: 767px) {
+                    width: 3.2rem;
+                    height: 3.2rem;
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 4rem;
+                left: 2.2rem;
+                width: 4px;
+                height: calc(100% - 4rem);
+                background: linear-gradient(to bottom,
+                        $greenClr 0%,
+                        rgba($greenClr, 0.5) 40%,
+                        rgba($greenClr, 0.4) 60%,
+                        rgba($greenClr, 0.3) 100%);
+                box-shadow: 0 0 10px 6px rgba($greenClr, 0.2);
+                border-radius: 16px;
+                transform: translateY(var(--arrowY, 0));
+
+                @media (max-width: 767px) {
+                    top: 2rem;
+                    left: 1.5rem;
+                    width: 3px;
+                    height: calc(100% - 2rem);
+                }
+            }
+
+            h3 {
+                font-size: 2.5rem;
+                line-height: 3.5rem;
+                font-weight: 500;
+                margin-bottom: 1.6rem;
+                color: $greenClr;
+
+                @media (max-width: 767px) {
+                    font-size: 2rem;
+                    line-height: 2.6rem;
+                }
+            }
+
+            ul {
+                margin-top: 3.5rem;
+
+                @media (max-width: 767px) {
+                    margin-top: 2rem;
+                }
+
+                li {
+                    display: flex;
+                    gap: 1.2rem;
+
+                    &:not(:last-child) {
+                        margin-bottom: 1.8rem;
+
+                        @media (max-width: 767px) {
+                            margin-bottom: 1.2rem;
+                        }
+                    }
+
+                    .checkIcon {
+                        min-width: 2.6rem;
+                        display: flex;
+
+                        @media (max-width: 767px) {
+                            min-width: 2rem;
+                        }
+                    }
+
+                    p {
+                        font-size: 1.6rem;
+                        line-height: 2.4rem;
+                        font-weight: 400;
+                        color: $greyClr;
+
+                        @media (max-width: 767px) {
+                            font-size: 1.4rem;
+                            line-height: 2.2rem;
+                        }
+
+                        strong {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_img {
+
+            img {
+                height: auto;
+                max-width: 100%;
+                object-fit: cover;
+            }
+
+            @media (max-width: 991px) {
+                margin-top: 3rem;
+            }
+        }
+    }
+}

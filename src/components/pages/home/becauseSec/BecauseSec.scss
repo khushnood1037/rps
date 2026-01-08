@@ -1,0 +1,174 @@
+@use "../../../../assets/theme/_var.scss" as *;
+
+.becauseSec {
+    padding: 6rem 0;
+
+    @media (max-width: 1679px) {
+        padding: 4rem 0;
+    }
+
+    @media (max-width: 767px) {
+        padding: 3rem 0;
+    }
+
+    @media (max-width: 575px) {
+        padding: 2rem 0;
+    }
+
+    &_slider {
+        border-radius: 3rem;
+        position: relative;
+        z-index: 1;
+        color: $white;
+        background: linear-gradient(-45deg, #fff9c1 0.23%, rgba(13, 22, 57, 0) 10.39%, rgba(20, 69, 100, 0) 91.39%, #fff9c1 100.24%);
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            border-radius: 3rem;
+            z-index: -1;
+            background-image: url("../../../../assets/images/privacy_bg.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slick-vertical {
+            .slick-slide {
+                border: 0;
+            }
+        }
+
+        &_img {
+            position: relative;
+            height: 47rem;
+            overflow: hidden;
+
+            @media (max-width: 767px) {
+                height: 22rem;
+            }
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                height: 90%;
+                opacity: 0;
+                transition: opacity 0.6s ease, transform 0.8s ease;
+                will-change: opacity, transform;
+                transform: translate(-50%, -50%);
+
+                @media (max-width: 1279px) {
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .slick-current {
+            .becauseSec_slider_img {
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .becauseSec_slider_img img.active {
+            opacity: 1;
+        }
+
+        &_content {
+            max-width: 47rem;
+
+            @media (max-width: 991px) {
+                max-width: 100%;
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .slide {
+            padding: 0;
+            min-height: 47rem;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            @media (max-width: 991px) {
+                min-height: 47rem;
+            }
+
+            @media (max-width: 425px) {
+                min-height: 50rem;
+            }
+        }
+
+        .slide-title {
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: $white;
+            margin-bottom: 1.6rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: $greyClr;
+            margin-bottom: 1.6rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 1.6rem;
+            }
+
+            li {
+                position: relative;
+                font-size: 1.6rem;
+                font-weight: 400;
+                color: $greyClr;
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+
+                &:not(:last-child) {
+                    margin-bottom: 1.6rem;
+
+                    @media (max-width:425px) {
+                        margin-bottom: 1rem;
+                    }
+                }
+
+                span {
+                    flex-shrink: 0;
+                }
+            }
+        }
+
+
+        .btn-warning {
+            background-color: #f6c90e;
+            border: none;
+            color: #000;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: #ffd84e;
+                transform: translateY(-2px);
+            }
+        }
+
+        .slick-dots li button:before {
+            color: #f6c90e !important;
+        }
+    }
+}

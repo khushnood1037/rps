@@ -1,0 +1,167 @@
+@use "../../../../assets/theme/_var.scss" as *;
+
+.custom_select {
+
+  label {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: 500;
+    color: rgba($black, 0.7);
+    margin-bottom: 0.8rem;
+
+    sup {
+      color: $red;
+      top: -0.4rem;
+    }
+  }
+
+  .select__control {
+    height: 3.8rem;
+    box-shadow: none;
+    background-color: transparent;
+    border: 0.1rem solid $grey76747B;
+    font-size: 1.4rem;
+    padding: 0.5rem 1.6rem;
+    border-radius: 0.8rem;
+    max-width: 18.6rem;
+    width: 100%;
+
+    @media (max-width: 1679px) {
+      height: 4.2rem;
+      font-size: 1.4rem;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: rgba($yellowClr, 0.5);
+    }
+
+    .select__input-container {
+      color: $white;
+      padding: 0;
+      margin: 0;
+    }
+
+    .select__placeholder {
+      color: $greyText;
+      font-size: 1.4rem;
+
+      @media (max-width: 575px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    .select__value-container--is-multi {
+      flex-wrap: unset;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      .select__multi-value {
+        min-width: max-content;
+      }
+    }
+
+    .select__single-value {
+      color: $white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .select__indicator-separator {
+      display: none;
+    }
+
+    .select__indicator {
+      cursor: pointer;
+      padding: 0;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        background-image: url("../../../../assets/images/arrow.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 1rem;
+        width: 1rem;
+        top: 50%;
+        left: -0.5rem;
+        transform: translateY(-50%);
+      }
+
+      svg {
+        fill: $black;
+        display: none;
+        width: 24px;
+        height: 24px;
+        transition: all ease-in-out 0.3s;
+      }
+    }
+  }
+
+  .select__menu {
+    width: 100%;
+    right: 0;
+    left: 0;
+    background-color: transparent;
+    backdrop-filter: blur(1rem);
+    border: 1px solid rgba($white, 0.3);
+    border-radius: 0.8rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    z-index: 99;
+
+    .select__menu-notice {
+      font-size: 14px;
+    }
+
+    .select__menu-list {
+      padding: 0;
+
+      .select__option {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.4rem;
+        font-weight: 500;
+        padding: 1.2rem 2rem;
+        color: $white;
+        border-bottom: 1px solid rgba($white, 0.1);
+
+        &--is-focused {
+          background-color: $yellowClr;
+        }
+
+        &:hover,
+        &--is-selected {
+          background-color: $yellowClr;
+
+          &:first-child {
+            border-radius: 0.8rem 0.8rem 0 0;
+          }
+
+          &:last-child {
+            border-radius: 0 0 0.8rem 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  .select__control--menu-is-open {
+    .select__indicator {
+      svg {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  .error_text {
+    color: $red;
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+  }
+}

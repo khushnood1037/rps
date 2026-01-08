@@ -1,0 +1,12 @@
+@use "../../../assets/theme/_var.scss" as *;
+
+.commonSearch {
+  .input_group {
+    padding-bottom: 0;
+    input {
+      border: 1px solid $grey76747B;
+      border-radius: 0.8rem;
+      padding: 0.9rem 1.7rem;
+    }
+  }
+}

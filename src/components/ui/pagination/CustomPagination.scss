@@ -1,0 +1,64 @@
+@use "../../../assets/theme/_var.scss" as *;
+
+.customPagination {
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    .page-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .page-link {
+        border-radius: 0.4rem;
+        color: $white;
+        text-align: center;
+        font-weight: 500;
+        background-color: $blue1c1c1c;
+        border: 1px solid $blue1c1c1c;
+        &.active {
+          background-color: $lightYellow;
+          border: 1px solid $lightYellow;
+          color: $darkBlue;
+        }
+        &:focus {
+          box-shadow: none;
+          outline: unset;
+        }
+      }
+      &:first-child,
+      &:last-child {
+        .page-link {
+          background-color: $blue1c1c1c;
+          border: 1px solid $blue1c1c1c;
+          color: $white;
+          line-height: 2rem;
+          padding: 0.4rem 1.1rem;
+        }
+      }
+      &:not(:first-child, :last-child) {
+        .page-link {
+          width: 3.1rem;
+          height: 2.8rem;
+        }
+      }
+      &.active {
+        .page-link {
+          border-radius: 0.4rem;
+          text-align: center;
+          font-weight: 500;
+          background-color: $lightYellow;
+          border: 1px solid $lightYellow;
+          color: $darkBlue;
+          font-size: 1.4rem;
+
+          &:focus {
+            box-shadow: none;
+            outline: unset;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+$baseFont: "DM Sans";
+$white: #ffffff;
+$black: #000000;
+$black7: #070000;
+$black0B0400: #0B0400;
+$darkBlue: #0a1f44;
+$blue1c1c1c: #1c1c1c;
+$blueClr: #29abe2;
+$greenClr: #45f882;
+$green4ADE80: #4ade80;
+$yellowFED400: #FED400;
+$yellowClr: #d4af37;
+$lightYellow: #ffd700;
+$lightgrey: #f4f4f4;
+$black1A1A1A: #1a1a1a;
+$borderClr: #374151;
+$grey1F1C1B: #1F1C1B;
+$grey76747B: #76747B;
+$borderClr2: #4b5563;
+$greyText: #9ca3af;
+$grey98969B: #98969B;
+$grey161616: #161616;
+$whiteE5E7EB: #e5e7eb;
+$blue: #3b82f6;
+$green: #22c55e;
+$red: #ef4444;
+$darkRed: #dc2626;
+$lightRed: #fca5a5;
+$purpleClr: #6366f1;
+$blue2563EB: #2563eb;
+$darkGreen: #059669;
+$white80: #4ade80;
+$color2E: #c8102e;
+$redc8102e: #c8102e;
+$colorE6: #e6e6e6;
+$colorBFF: #007bff;
+$greyClr: #CECECE;
+$greyBg: #272525;
+$darkBlue0B1426: #0b1426;
+$iconBg: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+$timerGradient: linear-gradient(135deg, #7c2d12 0%, #991b1b 50%, #7c2d12 100%);
+$bgGradient: linear-gradient(90deg, #0a1f44 0%, #1c1c1c 50%, #0a1f44 100%);
+$btnGradient: linear-gradient(90deg, #ffd700 0%, #c8102e 100%);
+$baseClr: linear-gradient(0deg, #0b1426 0%, #1a1a1a 50%, #0b1426 100%);
+$bagGradient: linear-gradient(90deg, #ffd700 0%, #29abe2 100%);
+$cardBg: linear-gradient(135deg, #0b1426 0%, #1a1a1a 50%, #0b1426 100%);
+$barGradient: linear-gradient(90deg, #d4af37 0%, #f59e0b 50%, #dc2626 100%);
+$yellowGradient: linear-gradient(90deg, #d4af3726 0%, #b8860b1a 100%);
+$blueCardGradient: linear-gradient(0deg, #1c1c1c 0%, #0a1f44 100%);
+$claimBg: linear-gradient(135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(41, 171, 226, 0.05) 50%,
+    rgba(200, 16, 46, 0.1) 100%);
+
+%transition {
+  transition: 0.3s all ease-in-out;
+}
+
+$textGradient: linear-gradient(90deg,
+    rgba(255, 215, 0, 1) 0%,
+    rgba(200, 16, 46, 1) 100%);
+
+$textGradient2: linear-gradient(90deg,
+    #e5ff00 0%,
+    rgb(179, 23, 49) 100%);
+
+$summaryGradient: linear-gradient(90deg,
+    rgba(41, 171, 226, 1) 0%,
+    rgba(255, 215, 0, 1) 100%);
+
+$RoadmapGradient: linear-gradient(0deg,
+    rgba(255, 215, 0, 1) 0%,
+    rgba(200, 16, 46, 1) 50%,
+    rgba(41, 171, 226, 1) 100%);
+
+$yellowGradientCard: linear-gradient(180deg, rgb(20 14 10) 0%, rgb(7, 4, 0) 100%);
+$strokeGradientCard: linear-gradient(145deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.08) 52.94%);
+
+@mixin card {
+  padding: 2.5rem;
+  border-radius: 0.8rem;
+  background: #1c1c1c;
+  border: 1px solid rgba($grey76747B, 0.2);
+
+  @media (max-width: 575px) {
+    padding: 1.5rem;
+  }
+}
+

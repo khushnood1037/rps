@@ -1,0 +1,20 @@
+@use "../../../assets/theme/_var.scss" as *;
+
+.error {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: $darkBlue;
+    font-size: 20rem;
+    font-weight: 900;
+  }
+  h4 {
+    color: $lightYellow;
+    font-size: 4rem;
+    font-weight: 700;
+  }
+}

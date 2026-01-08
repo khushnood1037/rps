@@ -1,0 +1,78 @@
+@use '../../../assets/theme/_var.scss' as *;
+
+.login_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    background: #070000;
+
+    @media (max-width:575px) {
+        padding: 1rem;
+    }
+
+    .login_container {
+        padding: 4rem 3rem;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 50rem;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        box-shadow: 0 .2rem 1.7rem rgba($yellowClr, 0.4);
+
+        @media (max-width:575px) {
+            padding: 2rem 1rem;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            left: 65.05%;
+            right: 15.46%;
+            top: 24.46%;
+            bottom: 61.15%;
+            background: rgba($greenClr, 0.48);
+            filter: blur(108.171px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        &::after {
+            position: absolute;
+            left: 7.67%;
+            right: 52.84%;
+            top: 32.8%;
+            bottom: 4.94%;
+            content: '';
+            background: rgba($yellowClr, 0.55);
+            filter: blur(108.171px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .login_logo {
+            margin-bottom: 3rem;
+            text-align: center;
+
+            img {
+                height: auto;
+                margin-bottom: 2rem;
+            }
+        }
+        .copy_btn {
+            svg {
+                path {
+                    fill: $black;
+                }
+            }
+            &:hover {
+                svg {
+                    path {
+                        fill: $yellowClr;
+                    }
+                }
+            }
+        }
+    }
+}

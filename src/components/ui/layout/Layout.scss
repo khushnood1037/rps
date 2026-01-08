@@ -1,0 +1,24 @@
+@use "../../../assets/theme/_var.scss" as *;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: clip;
+  position: relative;
+  min-height: 100dvh;
+
+  &_mainSec {
+    flex: 1 auto;
+    height: 100%;
+    padding: 3.3rem 0 6.4rem;
+
+    @media (max-width: 991px) {
+      padding: 2rem 0 5rem;
+    }
+
+    @media (max-width: 575px) {
+      padding: 2rem 0 3rem;
+    }
+  }
+}

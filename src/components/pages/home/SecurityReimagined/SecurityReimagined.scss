@@ -1,0 +1,79 @@
+@use "../../../../assets/theme/_var.scss" as *;
+
+.security_reimagined {
+    padding: 7rem 0;
+
+    @media (max-width: 1679px) {
+        padding: 4rem 0;
+    }
+
+    @media (max-width: 767px) {
+        padding: 3rem 0;
+    }
+
+    &_in {
+        background-image: url("../../../../assets/images/security-reimagine-bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        padding: 16.8rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (max-width: 1679px) {
+            padding: 10rem 0;
+        }
+
+        @media (max-width: 767px) {
+            padding: 3rem 0;
+            background-position: 40px 190px;
+            background-size: 300px;
+        }
+
+        .common_heading {
+            margin-bottom: 3rem !important;
+            max-width: 120rem;
+        }
+
+        .btn-style {
+            max-width: 19.7rem;
+            width: 100%;
+            padding-inline: 2rem;
+
+            @media (max-width:1399px) {
+                padding-inline: 1.5rem;
+                max-width: max-content;
+            }
+        }
+
+        ul {
+            margin-bottom: 5rem;
+            display: inline-block;
+
+            li {
+                max-width: 50rem;
+                color: $greyClr;
+                margin-top: 1.5rem;
+                position: relative;
+                padding-left: 2rem;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    width: 1rem;
+                    height: 1rem;
+                    background-color: $greyClr;
+                    border-radius: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+            @media (max-width:1599px) {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+}

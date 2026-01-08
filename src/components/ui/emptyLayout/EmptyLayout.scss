@@ -1,0 +1,7 @@
+@use "../../../assets/theme/_var.scss" as *;
+
+.emptylayout {
+    background: $black7;
+    background-image: url('../../../assets/images/bgShadow.png');
+    background-size: cover;
+}

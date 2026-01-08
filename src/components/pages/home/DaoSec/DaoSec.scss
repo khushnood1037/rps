@@ -1,0 +1,140 @@
+@use '../../../../assets/theme/_var.scss' as *;
+
+.tokenomics_dao {
+    position: relative;
+    padding: 39rem 0 6rem;
+    z-index: 1;
+
+    @media (max-width:1199px) {
+        padding: 30rem 0 4rem;
+    }
+
+    @media (max-width:767px) {
+        padding: 20rem 0 2rem;
+        padding-inline: 1.5rem;
+    }
+
+    &::before {
+        background: url('https://d1m3ouxjy8rwjs.cloudfront.net/tokenomics-half-circle.png') center/cover;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        left: 50%;
+        transform: translateX(-50%);
+        content: '';
+        max-width: 133.7rem;
+        width: 100%;
+        height: 71rem;
+
+        @media (max-width:1199px) {
+            height: 50rem;
+        }
+
+        @media (max-width:767px) {
+            height: 30rem;
+        }
+    }
+
+    &_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        h2 {
+            padding-bottom: 3rem;
+            font-size: 6.2rem;
+            color: $white;
+            font-weight: 300;
+            text-align: center;
+
+            @media (max-width: 1679px) {
+                font-size: 5rem;
+            }
+
+            @media (max-width: 1199px) {
+                font-size: 4rem;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 2.8rem;
+                text-align: center;
+                line-height: 3.4rem;
+            }
+
+            @media (max-width:1199px) {
+                padding-bottom: 2rem;
+            }
+        }
+
+        p {
+            max-width: 134rem;
+            line-height: 4.2rem;
+            text-align: center;
+            color: $greyClr;
+
+            @media (max-width:1199px) {
+                line-height: 140%;
+
+                br {
+                    display: none;
+                }
+            }
+        }
+
+        .fund_raising_desc {
+            max-width: 104.5rem;
+            width: 100%;
+            padding: 2.1rem 13.3rem;
+            border-radius: 3rem;
+            position: relative;
+            z-index: 1;
+            background-image: url(../../../../assets/images/fund-raising-card.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            min-height: 7.9rem;
+            margin: 4rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media (max-width: 767px) {
+                padding: 1rem 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            h4 {
+                text-align: center;
+                font-weight: 300;
+                font-size: 3.5rem;
+                line-height: 3.7rem;
+
+                @media (max-width: 1499px) {
+                    font-size: 2.8rem;
+                    line-height: 3rem;
+                }
+
+                @media (max-width: 767px) {
+                    font-size: 1.6rem;
+                    line-height: 2.2rem;
+                    min-height: 6rem;
+                }
+            }
+        }
+
+        .btn-style {
+            max-width: 30rem;
+            width: 100%;
+            padding-inline: 2rem;
+            margin-top: 2rem;
+
+            @media (max-width:1399px) {
+                max-width: max-content;
+                padding: 0.6rem 1.5rem;
+                margin-top: 1.4rem;
+            }
+        }
+    }
+
+}

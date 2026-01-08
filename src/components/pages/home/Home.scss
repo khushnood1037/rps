@@ -1,0 +1,115 @@
+@use "../../../assets/theme/_var.scss" as *;
+
+.landing_page {
+    background: #070000;
+    max-width: 192rem;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    min-height: 100dvh;
+
+    .container {
+        max-width: 156.8rem;
+        width: 100%;
+    }
+
+
+
+    .t_heading {
+        font-size: 6rem;
+        font-weight: 300;
+        margin-bottom: 3rem;
+        color: $white;
+
+        @media (max-width: 767px) {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    }
+
+    .t_small {
+        color: #CECECE;
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin: 0;
+
+        @media (max-width: 767px) {
+            font-size: 1.4rem;
+            text-align: center;
+
+        }
+    }
+
+    .common_heading {
+        margin-bottom: 4.5rem;
+
+        @media (max-width: 767px) {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 6.2rem;
+            color: $white;
+            font-weight: 300;
+
+
+            @media (max-width: 1679px) {
+                font-size: 5rem;
+            }
+
+            @media (max-width: 1199px) {
+                font-size: 4rem;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 2.8rem;
+            }
+        }
+
+        .subtitle {
+            margin-top: 1.6rem;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: $greyClr;
+
+            @media (max-width: 767px) {
+                font-size: 1.4rem;
+            }
+        }
+
+        &.col_6 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            h2 {
+                width: 68%;
+                padding-right: 2rem;
+
+                @media (max-width: 1679px) {
+                    width: 60%;
+                }
+
+                @media (max-width: 991px) {
+                    padding-right: 0;
+                    width: 100%;
+                }
+            }
+
+            .subtitle {
+                width: 32%;
+
+                @media (max-width: 1679px) {
+                    width: 40%;
+                }
+
+                @media (max-width: 991px) {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+}

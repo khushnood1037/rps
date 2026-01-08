@@ -1,0 +1,87 @@
+@use "../../../../assets/theme/_var.scss" as *;
+
+.admin_commonTable {
+  .table-responsive {
+    border-radius: 1.5rem 1.5rem 0 0;
+    margin-top: 0;
+    .table {
+      border-radius: 1.5rem;
+      margin-bottom: 0;
+      thead {
+        border-radius: 1.5rem 1.5rem 0 0;
+
+        tr {
+          border-radius: 1.5rem 1.5rem 0 0;
+          border-bottom: 1px solid rgba($blueClr, 0.2);
+
+          th {
+            background-color: rgba($darkBlue, 0.8);
+            border: none;
+            border-right: none;
+            border-left: none;
+            text-align: left;
+            padding: 1.3rem 2.4rem;
+            letter-spacing: 0.6px;
+            white-space: nowrap;
+
+            &:first-child {
+              border-top-left-radius: 1.4rem;
+              border-left: none;
+            }
+            &:last-child {
+              border-top-right-radius: 1.4rem;
+              border-right: none;
+            }
+
+            h5 {
+              font-size: 1.2rem;
+              font-weight: 500;
+              color: $white;
+            }
+          }
+        }
+      }
+      tbody {
+        border-radius: 1.4rem;
+        tr {
+          border-bottom: 1px solid rgba($blueClr, 0.2);
+
+        
+          td {
+            vertical-align: middle;
+            background-color: rgba($blue1c1c1c, 0.5);
+            padding: 2.15rem 2.4rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            text-align: left;
+            border-bottom: none;
+            color: $white;
+            white-space: nowrap;
+
+            &:first-child {
+              color: $white;
+              border-left: none;
+            }
+            &:last-child {
+              color: $white;
+              border-right: none;
+            }
+          }
+          &:last-child {
+            border-bottom: none;
+            td {
+              &:first-child {
+                color: $white;
+                border-radius: 0;
+              }
+              &:last-child {
+                color: $white;
+                border-radius: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

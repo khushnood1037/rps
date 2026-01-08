@@ -1,0 +1,154 @@
+@use "../../../../assets/theme/_var.scss" as *;
+
+.dashboard {
+  &_head {
+    .dashboard_card {
+      @include card;
+
+      @media (max-width: 991px) {
+        margin-bottom: 1rem;
+      }
+
+      .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        >div {
+          h3 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: $lightYellow;
+          }
+
+          p {
+            font-size: 1.4rem;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .update {
+        font-family: $baseFont;
+        font-size: 1.4rem;
+        color: rgba($lightgrey, 0.4);
+        padding-top: 1.6rem;
+
+        span {
+          color: $green4ADE80;
+          padding-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &_graph {
+    margin-top: 2.4rem;
+
+    .row {
+      >div {
+        @media (max-width: 991px) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    &_left,
+    &_right {
+      padding: 2.5rem;
+      background-color: $blue1c1c1c;
+      border: 1px solid rgba($yellowClr, 0.2);
+      border-radius: 0.8rem;
+      height: 100%;
+
+      .no_record_found {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: 600;
+
+        @media (max-width:575px) {
+          font-size: 1.6rem;
+        }
+      }
+
+      .token_sold_graph {
+        .recharts-tooltip-cursor {
+          fill: transparent;
+        }
+      }
+
+      h4 {
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 2rem;
+      }
+
+      img {
+        padding-top: 2.4rem;
+        width: 100%;
+      }
+    }
+  }
+
+  &_table {
+    margin-top: 2.4rem;
+    border: 1px solid rgba($yellowClr, 0.2);
+    border-radius: 0.8rem;
+
+    &_head {
+      padding: 0 2rem;
+
+      @media (max-width:575px) {
+        padding: 0 1.5rem;
+      }
+    }
+
+    .transaction {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 2.4rem;
+
+      a {
+        color: $yellowClr;
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+
+      .view-all-link {
+        background: none;
+        border: none;
+        color: $yellowClr;
+        font-size: 1.4rem;
+        font-weight: 400;
+        cursor: pointer;
+        padding: 0;
+        text-decoration: none;
+        transition: 0.4s ease all;
+
+        &:hover {
+          color: $grey76747B;
+        }
+      }
+    }
+
+    .commonTable {
+      border-radius: 0;
+    }
+  }
+}
+
+.useraddress {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: $white;
+}

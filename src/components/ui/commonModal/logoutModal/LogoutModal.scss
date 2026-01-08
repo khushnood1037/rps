@@ -1,0 +1,43 @@
+@use "../../../../assets/theme/_var.scss" as *;
+
+.logout_modal {
+  .modal-dialog {
+    max-width: 50rem;
+
+    .modal-content {
+      max-width: 100%;
+      padding: 4rem 2rem 2rem;
+
+      @media (max-width:575px) {
+        padding: 2rem 1.5rem;
+      }
+    }
+  }
+}
+
+.logout {
+  &_modal {
+
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+
+    &_btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+
+      >* {
+        flex: 0 0 48%;
+        max-width: 48%;
+      }
+
+      .btn-style {
+        font-weight: 600;
+      }
+    }
+  }
+}

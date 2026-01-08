@@ -1,0 +1,65 @@
+@use "../../../assets/theme/var" as *;
+
+.privacy_policy {
+    background: rgba($black, 0.2);
+    color: $white;
+    font-family: $baseFont;
+    padding: 4rem 2rem;
+
+    @media (max-width:1599px) {
+        padding: 3rem 1.5rem;
+    }
+
+    @media (max-width:575px) {
+        padding: 1.5rem;
+    }
+
+    .container {
+        @media (max-width:575px) {
+            padding: 0;
+        }
+    }
+
+    .page-title {
+        text-align: center;
+        color: $white;
+        font-size: 4.8rem;
+        line-height: 100%;
+        font-weight: 900;
+        margin-bottom: 2.4rem;
+
+        @media (max-width: 1269px) {
+            font-size: 3.6rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 3rem;
+            margin-bottom: 1.6rem;
+        }
+    }
+
+    .policy-content {
+        h3 {
+            margin: 2rem 0 1rem;
+            color: $yellowFED400;
+
+            @media (max-width:575px) {
+                margin: 1.4rem 0;
+            }
+        }
+
+        p {
+            color: $whiteE5E7EB;
+            margin-bottom: 1rem;
+
+            @media (max-width:575px) {
+                font-size: 1.2rem;
+            }
+        }
+
+        strong {
+            color: $green4ADE80;
+        }
+    }
+}

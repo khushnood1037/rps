@@ -1,0 +1,35 @@
+@use "../../../../assets/theme/_var.scss" as *;
+
+.settings {
+  .setting_row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem !important;
+
+    >div {
+      padding: 1rem !important;
+    }
+  }
+
+  &_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 2.4rem;
+    padding: 2rem;
+    background: $blue1c1c1c;
+    border: 1px solid rgba($grey76747B, 0.2);
+ .setting_actions_btns{
+  display: flex;
+  gap: 2rem;
+ }
+    >* {
+      flex-grow: 1;
+    }
+
+    button {
+      max-width: 20rem;
+      width: 100%;
+    }
+  }
+}
