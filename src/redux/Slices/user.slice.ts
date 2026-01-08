@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { LoginResponseData } from "../../types/api.types";
+// import type { LoginResponseData } from "../../types/api.types";
 
 /**USER DETAILS SLICE */
 interface UserState {
   walletAddress: string;
   temporaryRole: string | null;
-  userData: LoginResponseData | null;
+  // userData: LoginResponseData | null;
+  userData: string | null;
 }
 
 const initialState: UserState = {
@@ -27,7 +28,7 @@ export const UserSlice = createSlice({
       const { payload } = param;
       state.temporaryRole = payload;
     },
-    setUserData: (state, param: { payload: LoginResponseData | null }) => {
+    setUserData: (state, param: { payload: string | null }) => {
       const { payload } = param;
       state.userData = payload;
     },

@@ -1,9 +1,8 @@
-import { Col, Container, OverlayTrigger, Row, Tooltip } from "react-bootstrap"
-import "./TheRoot.scss"
-import CommonHeading from "../../../common/commonHeading/CommonHeading"
-import CommonButton from "../../../common/button/CommonButton"
-import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { Col, Container, Row } from "react-bootstrap"
+import CommonHeading from "../../../common/commonHeading/CommonHeading"
+import "./TheRoot.scss"
 
 const TheRoot = () => {
   const features = [
@@ -159,23 +158,6 @@ const TheRoot = () => {
                     </li>
                   ))}
                 </ul>
-                <OverlayTrigger
-                  placement="bottom"
-                  trigger={["hover", "focus"]}
-                  overlay={
-                    <Tooltip id="tooltip_wallet" className="custom_nav_tooltip">
-                      Coming Soon
-                    </Tooltip>
-                  }
-                >
-                  <span className="d-inline-block">
-                    <CommonButton
-                      className="anime"
-                      title="Explore ROCK Wallet"
-                      onClick={(e) => e.preventDefault()}
-                    />
-                  </span>
-                </OverlayTrigger>
               </div>
             </Col>
           </Row>
