@@ -10,6 +10,7 @@ import { CircleCheckIcon } from "../../../../assets/svgImgs/SvgImgs"
 import CommonButton from "../../../common/button/CommonButton"
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Dot } from "recharts"
 interface SlideButton {
   label: string;
   link: string;
@@ -100,12 +101,14 @@ const BecauseSec: React.FC = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
+    // vertical: true,
+    // verticalSwiping: true,
+    pauseOnHover: false,
+    pauseOnFocus: false,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 6000,
-    cssEase: "linear",
+    autoplaySpeed: 4000,
+    // cssEase: "linear",
     beforeChange: (_old: number, next: number) => setCurrentIndex(next),
   };
 

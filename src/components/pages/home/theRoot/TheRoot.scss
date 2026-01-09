@@ -1,7 +1,7 @@
 @use "../../../../assets/theme/_var.scss" as *;
 
 .theRoot {
-    padding: 6rem 0;
+    padding:0 6rem;
 
     .common_heading {
         p {
@@ -13,6 +13,7 @@
             }
         }
     }
+
     .main_heading {
         text-align: center;
     }
@@ -29,15 +30,48 @@
         padding: 2rem 0;
     }
 
+    &_inner {
+        padding: 3.6rem;
+        border-radius: 2.3rem;
+        position: relative;
+        background: $strokeGradientCard;
+        z-index: 1;
+        overflow: hidden;
+        display: block;
+        margin-bottom: 10rem;
+        .common_heading {
+            margin: 0;
+        }
+        p {
+            span {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            border-radius: 2.3rem;
+            z-index: -1;
+            background: $yellowGradientCard;
+        }
+        @media (max-width:1199px) {
+            padding: 5rem 2rem;
+            margin-bottom: 7rem;
+        }
+    }
+
 
     &_left {
         background: $yellowGradientCard;
         padding: 4rem;
         border-radius: 2.3rem;
-
-
-
-        
 
         .root_left_item {
             padding-bottom: 3rem;
@@ -89,9 +123,11 @@
                 line-height: 2.4rem;
             }
         }
+
         @media (min-width:991px) {
             height: 100%;
         }
+
         @media (max-width: 767px) {
             padding: 2rem;
             border-radius: 1.6rem;
@@ -126,6 +162,7 @@
                 font-size: 2.6rem;
             }
         }
+
         h5 {
             font-size: 2rem;
             line-height: 3rem;
@@ -135,7 +172,7 @@
         }
 
         &_list {
-            margin:0 0 4rem ;
+            margin: 0 0 4rem;
 
             @media (max-width: 767px) {
                 margin: 2rem 0;
@@ -146,6 +183,7 @@
                     margin-bottom: 1.5rem;
                     padding-left: 2rem;
                     position: relative;
+
                     &::before {
                         content: '';
                         position: absolute;

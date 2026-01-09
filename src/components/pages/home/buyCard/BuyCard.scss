@@ -93,21 +93,27 @@
                 .common_countdown_inner {
                     min-width: inherit;
                     min-height: inherit;
-                    padding: 1rem 1rem 0;
+                    padding: 1rem 1rem .5rem;
                     flex: 1 auto;
                 }
 
                 .common_countdown_inner_label {
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                 }
 
                 .common_countdown_inner_value {
-                    font-size: 3rem;
+                    font-size: 2rem;
                     margin-bottom: 0;
                 }
             }
 
             @media (max-width:575px) {
+                .common_countdown_inner {
+                    min-width: inherit;
+                    min-height: inherit;
+                    padding: 1rem 1rem .5rem;
+                    flex: 1 auto;
+                }
                 .common_countdown_inner_label {
                     font-size: 1rem;
                 }

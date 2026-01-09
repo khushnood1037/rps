@@ -52,7 +52,7 @@
     position: relative;
 
     &_scroll {
-      max-height: calc(100vh - 50rem);
+      max-height: 52rem;
       overflow-y: auto;
       padding-right: 1rem;
 
@@ -61,10 +61,13 @@
       &::-webkit-scrollbar {
         width: 6px;
       }
-
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      
       &::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.25);
-        border-radius: 10px;
+        background: transparent;
       }
     }
 
@@ -117,11 +120,16 @@
   }
 }
 
-/* Mobile: normal scroll, no pin */
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
+
   .cryptosec {
     height: auto;
     overflow: visible;
+    height: auto;
+    padding: 7rem 0;
+    .cryptosec_left {
+      margin-bottom: 5rem;
+    }
 
     &_right_scroll {
       max-height: none;

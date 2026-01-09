@@ -9,9 +9,6 @@
             margin: 0 auto;
         }
     }
-
-    
-
     &_slider {
         border-radius: 3rem;
         position: relative;
@@ -43,7 +40,7 @@
 
         &_img {
             position: relative;
-            height: 47rem;
+            height: 52rem;
             overflow: hidden;
 
             @media (max-width: 767px) {

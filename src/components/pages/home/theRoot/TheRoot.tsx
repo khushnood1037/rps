@@ -105,12 +105,10 @@ const TheRoot = () => {
   return (
     <>
       <div className="theRoot" id="theRoot">
-        <Container>
-        <CommonHeading
-            title="The Birth of Rock Token"
-            centered
-          />
+          <Container>
+        <div className="theRoot_inner">
           <CommonHeading
+          title="The Birth of Rock Token"
             subtitle={<>
             <span>Rock Token (ROCK) was born from a simple yet powerful idea: transforming the timeless game of Rock-Paper-Scissors into a global, community-driven force for good. In a world where gaming often feels disconnected and profit-focused, Rock Token envisions a platform that puts players first, fosters unbreakable loyalty, and creates real-world impact.</span>
             <span>Launched on the Solana blockchain for its speed, security, and low costs, Rock Token powers Rock Tournaments—a decentralized gaming ecosystem where everyone has an equal shot at winning, and every play contributes to something bigger.</span>
@@ -119,6 +117,10 @@ const TheRoot = () => {
             </>}
             centered
           />
+        </div>
+          </Container>
+        <Container>
+          
           <CommonHeading className="main_heading" title="Rock Tournaments: The Ultimate Upgrade" />
 
           <Row>

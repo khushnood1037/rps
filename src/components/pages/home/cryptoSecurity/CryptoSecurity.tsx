@@ -55,7 +55,7 @@ const CryptoSecurity = () => {
   ];
 
   useGSAP(() => {
-    if (window.innerWidth < 768) return;
+    if (window.innerWidth < 1200) return;
 
     const section = document.querySelector(".cryptosec") as HTMLElement;
     const scrollArea = document.querySelector(
@@ -84,7 +84,7 @@ const CryptoSecurity = () => {
     <div className="cryptosec">
       <Container>
         <Row className="align-items-start">
-          <Col lg={6} className="cryptosec_left">
+          <Col xl={6} className="cryptosec_left">
             <CommonHeading title="Why ROCK Tokens" />
             <div className="cryptosec_left_scanner">
               <img
@@ -97,7 +97,7 @@ const CryptoSecurity = () => {
             </div>
           </Col>
 
-          <Col lg={6} className="cryptosec_right">
+          <Col xl={6} className="cryptosec_right">
             <div className="cryptosec_right_scroll">
               {cryptoContent.map((item, index) => (
                 <div key={index} className="cryptosec_right_tile">
