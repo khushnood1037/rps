@@ -161,7 +161,7 @@ const SecuritySec = () => {
                                 </Col>
                                 <Col lg={5} xl={6}>
                                     <div className="securitySec_card_img text-center text-lg-end">
-                                        <img src={img1} alt="securitySec_card_img" width={500} height={601}/>
+                                        <img src={img1} alt="securitySec_card_img" width={400} height={481}/>
                                     </div>
                                 </Col>
                             </Row>
@@ -179,7 +179,7 @@ const SecuritySec = () => {
                                 </Col>
                                 <Col lg={5} xl={6}>
                                     <div className="securitySec_card_img text-center text-lg-end">
-                                        <img src={img2} alt="securitySec_card_img"width={587} height={412} />
+                                        <img src={img2} alt="securitySec_card_img"width={500} height={494} />
                                     </div>
                                 </Col>
                             </Row>

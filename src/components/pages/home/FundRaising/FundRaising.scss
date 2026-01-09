@@ -1,18 +1,18 @@
 @use '../../../../assets/theme/_var.scss' as *;
 
 .fund_raising {
-    padding: 6rem 0 0rem;
+    padding: 6rem 0;
 
     @media (max-width:1679px) {
-        padding: 4rem 0 0;
+        padding: 4rem 0;
     }
 
     @media (max-width:1399px) {
-        padding: 3rem 0 0;
+        padding: 3rem 0;
     }
 
     @media (max-width:767px) {
-        padding: 2rem 0 0;
+        padding: 2rem 0;
     }
 
     h3 {

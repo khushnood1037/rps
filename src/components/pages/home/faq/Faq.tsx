@@ -1,5 +1,6 @@
 import { Accordion, Container } from "react-bootstrap";
 import "./Faq.scss";
+import CommonHeading from "../../../common/commonHeading/CommonHeading";
 
 const Faq = () => {
   const data = [
@@ -38,7 +39,7 @@ const Faq = () => {
     <>
       <div className="faq" id="faq">
         <Container>
-          <h3>FREQUENTLY ASKED QUESTIONS</h3>
+          <CommonHeading title="FREQUENTLY ASKED QUESTIONS" centered />
           <Accordion defaultActiveKey={["0"]} alwaysOpen>
             {data.map((item, index) => (
               <Accordion.Item eventKey={item.index} key={index}>

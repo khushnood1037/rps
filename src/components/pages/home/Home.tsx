@@ -29,16 +29,16 @@ const Home = () => {
       <div className="landing_page">
         <Banner />
         <Suspense fallback={<div className="lazy-loader">Loading...</div>}>
-          <BecauseSec />
-          <RoadmapToPeace />
-          <SecuritySec />
+          <SecurityReimagined />
           <TheRoot />
           <StandardOwnership />
           <CryptoSecurity />
+          <BecauseSec />
+          <RoadmapToPeace />
+          <SecuritySec />
           <Tokenomics />
-          <DaoSec />
           <FundRaising />
-          <SecurityReimagined />
+          <DaoSec />
           <Faq />
         </Suspense>
       </div>

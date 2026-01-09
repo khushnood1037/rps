@@ -29,13 +29,13 @@ const Header = () => {
   const homeNav = [
     { link: "HOME", to: "#banner" },
     { link: "ABOUT", to: "#theRoot" },
-    { link: "TOKENOMICS", to: "#tokenomics" },
+    { link: "ROADMAP", to: "#roadmap" },
     {
       link: "WHITEPAPER",
       to: "#",
       target: "_blank",
     },
-    { link: "ROADMAP", to: "#roadmap" },
+    { link: "TOKENOMICS", to: "#tokenomics" },
     // { link: walletAddress ? "BUY" : "", to: "/buy" },
   ];
 

@@ -22,8 +22,9 @@
   }
 
   .common_heading {
-    max-width: 75rem;
+    // max-width: 75rem;
     margin: 0 auto;
+    padding-bottom: 2rem;
   }
 
   &_list {
@@ -225,7 +226,6 @@
 
       h3 {
         font-size: 1.6rem;
-        font-weight: 300;
         position: absolute;
         top: 58%;
         left: 50%;
@@ -241,7 +241,6 @@
       h4 {
         font-size: 2rem;
         margin-bottom: 0.3rem;
-        font-weight: 300;
 
 
         @media (max-width: 1399px) {

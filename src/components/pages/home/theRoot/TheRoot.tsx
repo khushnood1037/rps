@@ -108,7 +108,6 @@ const TheRoot = () => {
         <Container>
         <CommonHeading
             title="The Birth of Rock Token"
-            subtitle={"Rock Tournaments: The Ultimate Upgrade"}
             centered
           />
           <CommonHeading
@@ -120,6 +119,7 @@ const TheRoot = () => {
             </>}
             centered
           />
+          <CommonHeading className="main_heading" title="Rock Tournaments: The Ultimate Upgrade" />
 
           <Row>
             <Col xs={12} lg={6}>

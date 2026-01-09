@@ -61,22 +61,8 @@ const Banner = () => {
       },
       "-=0.3"
     );
-
-    tl.from(
-      ".banner_bottom",
-      {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-      },
-      "-=0.3"
-    );
   }, []);
 
-  const now = Math.floor(Date.now() / 1000);
-  const publicSaleDate = Math.floor(
-    new Date("2026-03-06T08:00:00Z").getTime() / 1000
-  );
 
   return (
     <>
@@ -118,55 +104,7 @@ const Banner = () => {
                   <BuyCard />
                 </Col>
               </Row>
-            </div>
-
-            <div className="banner_bottom">
-              <div className="banner_count_section">
-                {/* {!paused ? (
-                  <div className="buy_card_head">
-                    <h2>Current ICO Sale </h2>
-                  </div>
-                ) : (
-                  <div className="buy_card_head">
-                    <h2>Current ICO Sale </h2>
-                    <h4>Coming Soon</h4>
-                  </div>
-                )} */}
-                {/* {!paused ? ( */}
-                <div className="buy_card_countdown">
-                  <p className="start">Time until price increase</p>
-
-                  {/* <Countdown
-                      className="banner_count"
-                      startTimestamp={phaseInfo[2]}
-                      expiryTimestamp={phaseInfo[3]}
-                      callBack={getCurrentPhase}
-                    /> */}
-                  <Countdown
-                    className="banner_count"
-                    startTimestamp={now}
-                    expiryTimestamp={publicSaleDate}
-                  // callBack={getCurrentPhase}
-                  />
-                </div>
-                {/* // ) : (
-                //   ""
-                // )} */}
-                {/* <div className="buy_card_head mt-3 mb-0">
-                  {currentPhase ? (
-                    <h4> {VESTING_NAME[currentPhase]}</h4>
-                  ) : (
-                    <h4>ICO ENDED</h4>
-                  )}
-                </div> */}
-              </div>
-
-              {/* <div className="text">
-                <p>
-                  Moving away from data based security, to identity based trust
-                </p>
-              </div> */}
-            </div>
+            </div> 
           </div>
         </Container>
       </div>

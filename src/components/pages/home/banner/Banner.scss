@@ -5,14 +5,13 @@
   padding: 8.8rem 0 10rem;
   background-size: cover;
   z-index: 1;
-  min-height: calc(100dvh - 9rem);
 
   @media (max-width: 1679px) {
-    padding: 14rem 0;
+    padding: 8rem 0;
   }
 
   @media (max-width: 1499px) {
-    padding: 10rem 0;
+    padding: 9rem 0;
   }
 
   @media (max-width: 1199px) {
@@ -20,7 +19,7 @@
   }
 
   @media (max-width: 767px) {
-    padding: 2rem 0;
+    padding: 5rem 0;
   }
 
   &_inner {
@@ -28,7 +27,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: calc(100dvh - 20rem);
       gap: 1rem;
     }
 
@@ -37,45 +35,38 @@
       font-weight: 700;
       margin: 0 auto;
       text-align: center;
-      font-size: 6rem;
-      letter-spacing: 2px;
+      font-size: 7rem;
       margin-bottom: 3rem;
+      text-transform: capitalize;
       span {
         color: $greenClr;
         display: block;
-        font-size: 7rem;
+        font-size: 9.6rem;
       }
 
       @media (max-width: 1499px) {
-        font-size: 5rem;
+        font-size: 4rem;
         span {
           font-size: 6rem;
         }
       }
 
       @media (max-width: 767px) {
-        font-size: 3.6rem;
+        font-size: 3rem;
         span {
-          font-size: 4rem;
+          font-size: 5rem;
         }
       }
 
       @media (max-width: 575px) {
-        font-size: 2.2rem;
-        line-height: 2.6rem;
-        letter-spacing: 0;
+        font-size: 2.8rem;
         span {
-          font-size: 3rem;
+          font-size: 4.8rem;
         }
       }
     }
 
     .banner_content {
-      margin-top: 5rem;
-
-      @media (max-width: 767px) {
-        margin-top: 4rem;
-      }
 
       @media (max-width: 575px) {
         flex-direction: column;
@@ -102,7 +93,7 @@
           margin-top: 2rem;
           max-width: 25rem;
           width: 100%;
-          margin-top: 5rem;
+          margin-top: 3rem;
           @media (max-width: 1399px) {
             max-width: max-content;
           }
@@ -110,129 +101,17 @@
         p {
           font-weight: 400;
           font-size: 1.8rem;
-          line-height: 130%;
           color: $greyClr;
 
-          @media (max-width: 575px) {
+          @media (max-width: 1679px) {
+            font-size: 1.6rem;
+          }
+            @media (max-width: 575px) {
             text-align: center;
             font-size: 1.6rem;
           }
         }
       }
-    }
-
-    .banner_bottom {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      align-items: end;
-      margin-top: 16rem;
-
-      @media (max-width: 1679px) {
-        margin-top: 14rem;
-      }
-
-      @media (max-width: 1499px) {
-        margin-top: 10rem;
-      }
-
-      @media (max-width: 1499px) {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      @media (max-width: 575px) {
-        margin-top: auto;
-      }
-
-      .banner_count_section {
-        .start {
-          color: $greenClr;
-          text-align: center;
-          padding-bottom: 1rem;
-        }
-
-        .buy_card_head {
-          margin-bottom: 3rem;
-
-          h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #e5e7eb;
-            letter-spacing: 0;
-
-            @media (max-width: 1365px) {
-              font-size: 1.6rem;
-            }
-
-            @media (max-width: 575px) {
-              font-size: 1.4rem;
-            }
-          }
-        }
-      }
-
-      .banner_count {
-        max-width: unset;
-        width: unset;
-        border: 1.5px solid transparent;
-        border-radius: 2.3rem;
-        background: linear-gradient(90deg, #10090a, #0b0908) padding-box, linear-gradient(132.08deg, rgba(255, 255, 255, 0.3) 25.01%, rgba(255, 255, 255, 0.05) 52.94%) border-box;
-        padding: .5rem;
-
-        @media (max-width: 575px) {
-          width: 100%;
-          border-radius: 1.4rem;
-        }
-
-        .common_countdown_inner {
-          border-radius: 2rem;
-          height: 14.3rem;
-          width: 14.3rem;
-          padding: 1rem;
-
-          @media (max-width: 1399px) {
-            height: 11.4rem;
-            width: 11.4rem;
-            min-width: 11.4rem;
-            min-height: 11.4rem;
-          }
-
-          @media (max-width: 575px) {
-            height: calc(100% / 4 - 4px);
-            width: calc(100% / 4 - 4px);
-            min-width: calc(100% / 4 - 4px);
-            min-height: calc(100% / 4 - 4px);
-            border-radius: 1.4rem;
-
-          }
-
-          .common_countdown_inner_value {
-            font-weight: 500;
-            font-size: 8rem;
-            line-height: 100%;
-            letter-spacing: -4%;
-            text-transform: uppercase;
-
-            background: linear-gradient(178.81deg, #FFFFFF -17.25%, #0A0909 115.01%);
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-
-            @media (max-width: 1679px) {
-              font-size: 6rem;
-            }
-
-            @media (max-width: 1399px) {
-              font-size: 3rem;
-            }
-
-            @media (max-width: 575px) {
-              font-size: 2.2rem;
-            }
-          }
-        }
-      }
-
     }
   }
 }
