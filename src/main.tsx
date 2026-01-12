@@ -13,18 +13,21 @@ import store from "./redux/Store";
 import { ToastContainer } from "react-toastify";
 import Loader from "./components/common/Loader/Loader";
 import "./index.scss";
+import { SolanaProvider } from "./config/walletProvider";
 const persistor = persistStore(store);
 
 createRoot(document.getElementById("root")!).render(
-  <Provider store={store}>
-    <PersistGate loading={"loading..."} persistor={persistor}>
-      <BrowserRouter>
+  <SolanaProvider>
+    <Provider store={store}>
+      <PersistGate loading={"loading..."} persistor={persistor}>
+        <BrowserRouter>
           <NiceModal.Provider>
             <Loader />
             <ToastContainer />
             <App />
           </NiceModal.Provider>
-      </BrowserRouter>
-    </PersistGate>
-  </Provider>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </SolanaProvider>
 );
