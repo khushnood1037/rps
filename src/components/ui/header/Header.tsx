@@ -6,6 +6,7 @@ import { Link as ScrollLink } from "react-scroll";
 import logoDesktop from "../../../assets/images/logo.png";
 import logoMobile from "../../../assets/images/faviconlogo.png";
 import CommonButton from "../../common/button/CommonButton";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import "./Header.scss";
 
 const Header = () => {
@@ -211,6 +212,9 @@ const Header = () => {
             )}
           </div>
           <div className="action_btn">
+            <div className="solana_wallet_btn">
+              <WalletMultiButton />
+            </div>
             <CommonButton
               onClick={() => navigate("/login")}
               title="SIGN IN"
