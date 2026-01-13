@@ -1,7 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Toaster from "../components/common/Toast";
-// @ts-expect-error solana types
 import { useWallet } from "@solana/wallet-adapter-react";
 
 const ADMIN_WALLET = "CdmD8DTQ2pjftiG7hKqSkFubUdfmN9V4wQ6Lke7EL1zz";
@@ -11,9 +10,10 @@ interface AuthGuardProps {
 }
 
 const AuthGuard = ({ children }: AuthGuardProps) => {
-  const { publicKey } = useWallet();
+  const { publicKey, connecting } = useWallet();
   const location = useLocation();
   const hasShownToast = useRef(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const isAdminRoute = location.pathname.startsWith("/admin");
   const walletAddress = publicKey?.toBase58?.() ?? null;
@@ -22,7 +22,26 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
   const isAdmin = walletAddress === ADMIN_WALLET;
 
   useEffect(() => {
-    if (!isAdminRoute || hasShownToast.current) return;
+    const fallbackTimer = setTimeout(() => {
+      setIsInitialized(true);
+    }, 2000);
+
+    if (!connecting) {
+      const timer = setTimeout(() => {
+        setIsInitialized(true);
+        clearTimeout(fallbackTimer);
+      }, 100);
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(fallbackTimer);
+      };
+    }
+
+    return () => clearTimeout(fallbackTimer);
+  }, [connecting]);
+
+  useEffect(() => {
+    if (!isAdminRoute || hasShownToast.current || !isInitialized) return;
 
     if (!isConnected) {
       Toaster.error("Please connect your wallet");
@@ -34,19 +53,15 @@ const AuthGuard = ({ children }: AuthGuardProps) => {
       Toaster.error("Unauthorized Access");
       hasShownToast.current = true;
     }
-  }, [isAdminRoute, isConnected, isAdmin]);
+  }, [isAdminRoute, isConnected, isAdmin, isInitialized]);
 
+  if (!isInitialized) {
+    return null;
+  }
 
-  // Connected but not admin → blocked
   if (!isAdmin) {
     return <Navigate to="/" replace />;
   }
-
-  // // Admin wallet but not inside /admin yet → push dashboard
-  // if (!location.pathname.startsWith("/admin")) {
-  //   return <Navigate to="/admin/dashboard" replace />;
-  // }
-
   return <>{children}</>;
 };
 

@@ -2,19 +2,21 @@
 
 .error {
   text-align: center;
-  height: 100vh;
+  flex: 1 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 5rem 1.5rem;
   h1 {
-    color: $darkBlue;
-    font-size: 20rem;
+    color: $greenClr;
     font-weight: 900;
   }
   h4 {
     color: $lightYellow;
-    font-size: 4rem;
     font-weight: 700;
+  }
+  .btn-style {
+    margin-top: 2rem;
   }
 }

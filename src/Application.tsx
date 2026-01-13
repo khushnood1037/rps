@@ -11,7 +11,7 @@ import TermsConditions from "./components/pages/TermsConditions/TermsConditions"
 import AdminLayout from "./components/ui/admin/adminLayout/AdminLayout";
 import EmptyLayout from "./components/ui/emptyLayout/EmptyLayout";
 import Layout from "./components/ui/layout/Layout";
-// import AuthGuard from "./guards/AuthGuard";
+import AuthGuard from "./guards/AuthGuard";
 const Application = () => {
   return (
     <Routes>
@@ -33,9 +33,9 @@ const Application = () => {
       <Route
         path="/admin"
         element={
-          <>
+          <AuthGuard>
             <AdminLayout />
-          </>
+          </AuthGuard>
         }
       >
         <Route index element={<Dashboard />} />
