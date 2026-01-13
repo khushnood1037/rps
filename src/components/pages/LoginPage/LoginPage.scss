@@ -4,11 +4,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100dvh;
+    flex: 1 auto;
     background: #070000;
+    padding: 5rem 1.5rem;
+    .wallet-adapter-dropdown {
+        width: 100%;
+        max-width: 100%;
+        > .wallet-adapter-button {
+            min-height: 5.4rem;
+            width: 100%;
+        max-width: 100%;
+        border-radius: 2rem;
+        margin-bottom: 1rem;
 
-    @media (max-width:575px) {
-        padding: 1rem;
+  @media (max-width: 1399px) {
+    min-height: 4.5rem;
+    font-size: 1.4rem;
+    padding: 0.6rem 1.5rem;
+  }
+        }
     }
 
     .login_container {
@@ -18,37 +32,10 @@
         max-width: 50rem;
         position: relative;
         z-index: 1;
-        overflow: hidden;
         box-shadow: 0 .2rem 1.7rem rgba($yellowClr, 0.4);
 
         @media (max-width:575px) {
             padding: 2rem 1rem;
-        }
-
-        &::before {
-            position: absolute;
-            content: '';
-            left: 65.05%;
-            right: 15.46%;
-            top: 24.46%;
-            bottom: 61.15%;
-            background: rgba($greenClr, 0.48);
-            filter: blur(108.171px);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        &::after {
-            position: absolute;
-            left: 7.67%;
-            right: 52.84%;
-            top: 32.8%;
-            bottom: 4.94%;
-            content: '';
-            background: rgba($yellowClr, 0.55);
-            filter: blur(108.171px);
-            z-index: -1;
-            pointer-events: none;
         }
 
         .login_logo {

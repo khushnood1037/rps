@@ -1,0 +1,34 @@
+@use "../../../assets/theme/_var.scss" as *;
+
+.wallet-adapter-dropdown {
+    > .wallet-adapter-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-weight: 600;
+        background: $greenClr;
+        color: $black;
+        border: 1px solid;
+        cursor: pointer;
+        min-height: 2rem;
+        font-size: 1.6rem;
+        min-width: auto;
+        padding: 1.4rem 2rem;
+        border-radius: 1.4rem;
+        height: 4rem;
+        transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+      
+        &:hover {
+          border-color: $yellowFED400;
+          background: transparent;
+          color: $yellowFED400;
+      
+          svg {
+            path {
+              fill: currentColor;
+            }
+          }
+        }
+    }
+}

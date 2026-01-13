@@ -10,7 +10,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
 import "./NiceModalRegistry";
 import store from "./redux/Store";
-import { ToastContainer } from "react-toastify";
+import { Toaster } from "react-hot-toast";
 import Loader from "./components/common/Loader/Loader";
 import "./index.scss";
 import { SolanaProvider } from "./config/walletProvider";
@@ -23,7 +23,7 @@ createRoot(document.getElementById("root")!).render(
         <BrowserRouter>
           <NiceModal.Provider>
             <Loader />
-            <ToastContainer />
+            <Toaster />
             <App />
           </NiceModal.Provider>
         </BrowserRouter>

@@ -1,10 +1,17 @@
+import toast from "react-hot-toast";
 import { CopyIcon, CsvIcon } from "../../../../assets/svgImgs/SvgImgs";
 import CommonButton from "../../../common/button/CommonButton";
 import CommonSearch from "../../../ui/commonSearch/CommonSearch";
 import CommonTable from "../../../ui/commonTable/CommonTable";
 import "./Users.scss";
+import useCopyClipboard from "../../../../hooks/useCopyToClipboard";
+import { useState, type ChangeEvent, type ChangeEventHandler } from "react";
 
 const Users = () => {
+  const [staticCopy] = useCopyClipboard();
+  const [search, setSearch] = useState("");
+  console.log(search);
+
 
   const fields = [
     {
@@ -83,8 +90,8 @@ const Users = () => {
           <div className="d-flex">
             <CommonSearch
               placeholder="Search by wallet address"
-              value=""
-              onChange={() => {}}
+              value={search}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value as string)}
             />
 
             <CommonButton
@@ -97,14 +104,8 @@ const Users = () => {
           <div className="btns">
             <CommonButton
               className="small yellow_btn csv_btn"
-              title={
-                <div>
-                  <span className="me-3">
-                    <CsvIcon />
-                  </span>
-                  Export CSV
-                </div>
-              }
+              title="Export CSV"
+              svgIcon={<CsvIcon />}
             />
           </div>
         </div>
@@ -117,8 +118,10 @@ const Users = () => {
                   <button
                     type="button"
                     className="users_table_useraddress text-white "
-                    disabled
-                  >
+                    onClick={() => {
+                      staticCopy(item.userAddress);
+                      toast.success("Wallet address copied");
+                    }}>
                     {item.userAddress}{" "}
                     <span className="ps-2">
                       <CopyIcon />

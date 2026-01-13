@@ -1,13 +1,14 @@
-import { useState } from "react";
+// import { useState } from "react";
 import logo from "../../../assets/images/logo.png"; // replace with your logo
 import CommonButton from "../../common/button/CommonButton";
-import { CopyIcon, WalletIcon } from "../../../assets/svgImgs/SvgImgs";
+// import { CopyIcon, WalletIcon } from "../../../assets/svgImgs/SvgImgs";
 import { Col, Row } from "react-bootstrap";
 import "./LoginPage.scss";
 import { useNavigate } from "react-router-dom";
+import ConnectWalletBtn from "../../common/connectWallet/ConnectWallet";
 const LoginPage = () => {
 
-  const [connected, setConnected] = useState(true);
+  // const [connected, setConnected] = useState(true);
   const navigate = useNavigate();
   return (
     <div className="login_page">
@@ -16,7 +17,7 @@ const LoginPage = () => {
           <img src={logo} alt="Logo" />
         <h4>ROCK ICO Admin</h4>
         </div>
-        {connected ?
+        {/* {connected ?
           <CommonButton
             title={"Connect Wallet"}
             className="wallet_btn mb-3"
@@ -44,7 +45,8 @@ const LoginPage = () => {
               />
             </Col>
           </Row>
-        }
+        } */}
+        <ConnectWalletBtn />
         <Row>
           <Col>
             <CommonButton

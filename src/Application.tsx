@@ -11,6 +11,7 @@ import TermsConditions from "./components/pages/TermsConditions/TermsConditions"
 import AdminLayout from "./components/ui/admin/adminLayout/AdminLayout";
 import EmptyLayout from "./components/ui/emptyLayout/EmptyLayout";
 import Layout from "./components/ui/layout/Layout";
+// import AuthGuard from "./guards/AuthGuard";
 const Application = () => {
   return (
     <Routes>
@@ -29,7 +30,6 @@ const Application = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsConditions />} />
       </Route>
-      {/* Unified role-based route group */}
       <Route
         path="/admin"
         element={

@@ -1,16 +1,11 @@
-// import './toast.scss'
+import './toast.scss'
 import toast from "react-hot-toast";
 import type { Renderable } from "react-hot-toast";
 
 const defaultOptions = {
+  duration: 2000,
   position: "top-center" as const,
-  autoClose: 2000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  className: "toster-bar",
+  className: "toster-bar common-toast",
   style: {
     fontSize: "16px",
   },

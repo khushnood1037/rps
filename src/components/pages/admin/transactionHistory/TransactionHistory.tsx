@@ -3,6 +3,8 @@ import {
   CsvIcon,
   RedirectIcon,
 } from "../../../../assets/svgImgs/SvgImgs";
+import useCopyClipboard from "../../../../hooks/useCopyToClipboard";
+import toast from "react-hot-toast";
 import CommonButton from "../../../common/button/CommonButton";
 import CommonSearch from "../../../ui/commonSearch/CommonSearch";
 import CommonTable from "../../../ui/commonTable/CommonTable";
@@ -11,6 +13,7 @@ import "./TransactionHistory.scss";
 import CommonHeading from "../../../common/commonHeading/CommonHeading";
 
 const TransactionHistory = () => {
+  const [staticCopy] = useCopyClipboard();
 
   const fields = [
     { label: "Sr No" },
@@ -108,14 +111,8 @@ const TransactionHistory = () => {
           <div className="transaction_history_head_btns">
             <CommonButton
               className="small yellow_btn csv_btn"
-              title={
-                <div>
-                  <span className="me-3">
-                    <CsvIcon />
-                  </span>
-                  Export CSV
-                </div>
-              }
+              title="Export CSV"
+              svgIcon={<CsvIcon />}
             />
           </div>
         </div>
@@ -132,7 +129,11 @@ const TransactionHistory = () => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>
-                  <button type="button" className="user" disabled>
+                  <button type="button" className="user" 
+                  onClick={()=>{
+                    staticCopy(item.userAddress); 
+                    toast.success("Wallet address copied");
+                  }}>
                     {item.userAddress}{" "}
                     <span>
                       <CopyIcon />

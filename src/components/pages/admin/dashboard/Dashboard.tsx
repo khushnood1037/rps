@@ -20,8 +20,11 @@ import {
 import CommonHeading from "../../../common/commonHeading/CommonHeading";
 import CommonTable from "../../../ui/commonTable/CommonTable";
 import "./Dashboard.scss";
+import useCopyClipboard from "../../../../hooks/useCopyToClipboard";
+import Toaster from "../../../common/Toast";
 
 const Dashboard = () => {
+  const [staticCopy] = useCopyClipboard();
 
   // Static data for dashboard cards
   const data = [
@@ -171,8 +174,8 @@ const Dashboard = () => {
                         }}
                       />
                       <Tooltip
-                        formatter={(value: number) => [
-                          `$${(value / 1000000).toFixed(2)}M`,
+                        formatter={(value: number | undefined) => [
+                          `$${(value ?? 0 / 1000000).toFixed(2)}M`,
                           "Sales",
                         ]}
                         labelFormatter={(label) => `Month: ${label}`}
@@ -227,8 +230,8 @@ const Dashboard = () => {
                         }}
                       />
                       <Tooltip
-                        formatter={(value: number) => [
-                          `${(value / 1000000).toFixed(2)}M`,
+                        formatter={(value: number | undefined) => [
+                          `${(value ?? 0 / 1000000).toFixed(2)}M`,
                           "Tokens Sold",
                         ]}
                         labelFormatter={(label) => `Phase: ${label}`}
@@ -257,7 +260,11 @@ const Dashboard = () => {
             {staticTransactions.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <button type="button" className="useraddress" disabled>
+                  <button type="button" className="useraddress" 
+                  onClick={() => {
+                          staticCopy(item.userAddress);
+                          Toaster.success("Wallet address copied");
+                        }}>
                     {item.userAddress}{" "}
                     <span>
                       <CopyIcon />

@@ -74,11 +74,11 @@ a {
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  min-height: 100%;
 
   body {
     display: flex;
     place-items: center;
-    min-height: 100dvh;
     font-size: 1.6rem;
     margin: 0;
     padding: 0;
