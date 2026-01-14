@@ -1,0 +1,555 @@
+{
+  "address": "F8Ly4UZPeBembr3hD8NyiMtG7Sm1dCKuJDyNmA9n2miA",
+  "metadata": {
+    "name": "phased_ico",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "buy_tokens",
+      "discriminator": [
+        189,
+        21,
+        230,
+        133,
+        247,
+        2,
+        110,
+        42
+      ],
+      "accounts": [
+        {
+          "name": "ico_state",
+          "writable": true
+        },
+        {
+          "name": "user_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114,
+                  45,
+                  112,
+                  117,
+                  114,
+                  99,
+                  104,
+                  97,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "receiver",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "sol_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "calculate_tokens",
+      "discriminator": [
+        239,
+        223,
+        82,
+        189,
+        239,
+        205,
+        151,
+        177
+      ],
+      "accounts": [
+        {
+          "name": "ico_state"
+        }
+      ],
+      "args": [
+        {
+          "name": "sol_amount",
+          "type": "u64"
+        }
+      ],
+      "returns": "u64"
+    },
+    {
+      "name": "get_current_phase",
+      "discriminator": [
+        184,
+        193,
+        198,
+        29,
+        18,
+        49,
+        212,
+        226
+      ],
+      "accounts": [
+        {
+          "name": "ico_state"
+        }
+      ],
+      "args": [],
+      "returns": "u8"
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "ico_state",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "receiver",
+          "type": "pubkey"
+        },
+        {
+          "name": "user_purchase_limit",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "update_admin",
+      "discriminator": [
+        161,
+        176,
+        40,
+        213,
+        60,
+        184,
+        179,
+        228
+      ],
+      "accounts": [
+        {
+          "name": "ico_state",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "ico_state"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "new_admin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "update_phase_price",
+      "discriminator": [
+        21,
+        98,
+        49,
+        63,
+        109,
+        1,
+        95,
+        213
+      ],
+      "accounts": [
+        {
+          "name": "ico_state",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "ico_state"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "phase_id",
+          "type": "u8"
+        },
+        {
+          "name": "new_price",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "update_phase_time",
+      "discriminator": [
+        44,
+        157,
+        183,
+        103,
+        77,
+        236,
+        152,
+        173
+      ],
+      "accounts": [
+        {
+          "name": "ico_state",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "ico_state"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "phase_id",
+          "type": "u8"
+        },
+        {
+          "name": "new_start",
+          "type": "i64"
+        },
+        {
+          "name": "new_end",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "update_receiver",
+      "discriminator": [
+        200,
+        127,
+        11,
+        12,
+        41,
+        167,
+        133,
+        181
+      ],
+      "accounts": [
+        {
+          "name": "ico_state",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "ico_state"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "new_receiver",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "update_user_purchase_limit",
+      "discriminator": [
+        212,
+        168,
+        26,
+        17,
+        200,
+        166,
+        124,
+        43
+      ],
+      "accounts": [
+        {
+          "name": "ico_state",
+          "writable": true
+        },
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "ico_state"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "new_limit",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "IcoState",
+      "discriminator": [
+        219,
+        70,
+        204,
+        53,
+        128,
+        154,
+        51,
+        108
+      ]
+    },
+    {
+      "name": "UserPurchaseState",
+      "discriminator": [
+        102,
+        169,
+        101,
+        218,
+        240,
+        27,
+        239,
+        90
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "TokensPurchased",
+      "discriminator": [
+        214,
+        119,
+        105,
+        186,
+        114,
+        205,
+        228,
+        181
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidPhase",
+      "msg": "Invalid phase"
+    },
+    {
+      "code": 6001,
+      "name": "PhaseNotActive",
+      "msg": "Phase not active"
+    },
+    {
+      "code": 6002,
+      "name": "PhaseSoldOut",
+      "msg": "Phase sold out"
+    },
+    {
+      "code": 6003,
+      "name": "UserLimitExceeded",
+      "msg": "User purchase limit exceeded"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidPayment",
+      "msg": "Invalid payment"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidAmount",
+      "msg": "Invalid amount"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidPhaseTime",
+      "msg": "Invalid phase time"
+    },
+    {
+      "code": 6007,
+      "name": "MathOverflow",
+      "msg": "Math overflow"
+    }
+  ],
+  "types": [
+    {
+      "name": "IcoState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "receiver",
+            "type": "pubkey"
+          },
+          {
+            "name": "user_purchase_limit",
+            "type": "u64"
+          },
+          {
+            "name": "total_tokens_to_be_sold",
+            "type": "u64"
+          },
+          {
+            "name": "total_tokens_sold",
+            "type": "u64"
+          },
+          {
+            "name": "total_usd_raised",
+            "type": "u64"
+          },
+          {
+            "name": "phases",
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "Phase"
+                  }
+                },
+                5
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Phase",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "phase_id",
+            "type": "u8"
+          },
+          {
+            "name": "price_usd",
+            "type": "u64"
+          },
+          {
+            "name": "total_tokens",
+            "type": "u64"
+          },
+          {
+            "name": "tokens_sold",
+            "type": "u64"
+          },
+          {
+            "name": "start_time",
+            "type": "i64"
+          },
+          {
+            "name": "end_time",
+            "type": "i64"
+          },
+          {
+            "name": "is_active",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokensPurchased",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "phase_id",
+            "type": "u8"
+          },
+          {
+            "name": "token_amount",
+            "type": "u64"
+          },
+          {
+            "name": "sol_paid",
+            "type": "u64"
+          },
+          {
+            "name": "usd_amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserPurchaseState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_tokens_bought",
+            "type": "u64"
+          },
+          {
+            "name": "total_sol_paid",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}

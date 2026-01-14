@@ -19,24 +19,43 @@ export default function Countdown({
   // Convert UNIX timestamp to Date
   const expiryDate = new Date(expiryTimestamp * 1000);
   const startDate = startTimestamp ? new Date(startTimestamp * 1000) : null;
-  const initialExpiry = startDate && +new Date() < +startDate ? startDate : expiryDate;
+  const nowMs = Date.now();
+  const shouldCountToStart = !!startDate && nowMs < startDate.getTime();
+  const targetDate = shouldCountToStart ? (startDate as Date) : expiryDate;
+
+  // eslint-disable-next-line no-console
+  console.log("[Countdown][debug] props", { startTimestamp, expiryTimestamp, shouldCountToStart });
 
 
   const { seconds, minutes, hours, days, restart } = useTimer({
-    expiryTimestamp: initialExpiry,
+    expiryTimestamp: targetDate,
     autoStart: true,
     onExpire: () => {
-      setTimeout(() => {
-        if (callBack) {
-          callBack();
+      // If we were counting down to the start time, automatically restart to count down to the end time.
+      if (startDate && startDate.getTime() !== expiryDate.getTime()) {
+        const now = Date.now();
+        if (now >= startDate.getTime() && now < expiryDate.getTime()) {
+          restart(expiryDate, true);
+          // optional refresh to update UI/state after phase flip
+          if (callBack) setTimeout(callBack, 500);
+          return;
         }
+      }
+
+      setTimeout(() => {
+        if (callBack) callBack();
       }, 5000);
     },
   });
   useEffect(() => {
-    restart(initialExpiry, true);
+    // eslint-disable-next-line no-console
+    console.log("[Countdown][debug] restart ->", {
+      target: Math.floor(targetDate.getTime() / 1000),
+      now: Math.floor(Date.now() / 1000),
+    });
+    restart(targetDate, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startTimestamp, expiryTimestamp]);
+  }, [startTimestamp, expiryTimestamp, targetDate.getTime()]);
 
 
 

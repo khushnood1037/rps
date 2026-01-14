@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Toaster from "../components/common/Toast";
 import { useWallet } from "@solana/wallet-adapter-react";
 
-const ADMIN_WALLET = "CdmD8DTQ2pjftiG7hKqSkFubUdfmN9V4wQ6Lke7EL1zz";
+const ADMIN_WALLET = "3upZihznv9XYZQSAVLVtyCuJUUKEQzwqdfFf4EF7rvA6";
 
 interface AuthGuardProps {
   children: React.ReactNode;

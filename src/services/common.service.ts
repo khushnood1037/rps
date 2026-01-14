@@ -1,3 +1,175 @@
+// -----------------------------
+// Solana + formatting helpers
+// -----------------------------
+
+export type PhaseLike = {
+  phaseId: number | string;
+  startTime: number | string;
+  endTime: number | string;
+  isActive: boolean;
+};
+
+export function getPhasesFromIcoState(icoState: unknown): PhaseLike[] {
+  const s = icoState as any;
+  const phases: any[] | undefined = s?.phases;
+  if (!Array.isArray(phases)) return [];
+  return phases.map((p) => ({
+    phaseId: p?.phaseId ?? p?.phase_id ?? 0,
+    startTime: p?.startTime ?? p?.start_time ?? 0,
+    endTime: p?.endTime ?? p?.end_time ?? 0,
+    isActive: Boolean(p?.isActive ?? p?.is_active),
+  }));
+}
+
+function asUnixSeconds(v: unknown): number {
+  if (typeof v === "number") {
+    if (!Number.isFinite(v) || v < 0) return 0;
+    return Math.floor(v);
+  }
+
+  if (typeof v === "string") {
+    const s = v.trim();
+    if (!s) return 0;
+
+    // redux-persist + bn.js: BN.toJSON() returns a hex string without 0x (e.g. "69660d56").
+    // Support both decimal and hex representations.
+    const negative = s.startsWith("-");
+    const raw = negative ? s.slice(1) : s;
+    const isHex =
+      raw.startsWith("0x") ||
+      (/^[0-9a-f]+$/i.test(raw) && /[a-f]/i.test(raw)); // contains hex digits beyond 0-9
+
+    const parsed = isHex ? parseInt(raw.startsWith("0x") ? raw : `0x${raw}`, 16) : Number(raw);
+    const n = negative ? -parsed : parsed;
+    if (!Number.isFinite(n) || n < 0) return 0;
+    return Math.floor(n);
+  }
+
+  // Anchor can also return BN-like objects; try common conversions.
+  if (v && typeof v === "object") {
+    const anyV = v as any;
+    if (typeof anyV?.toNumber === "function") {
+      try {
+        const n = Number(anyV.toNumber());
+        if (Number.isFinite(n) && n >= 0) return Math.floor(n);
+      } catch {
+        // ignore
+      }
+    }
+    if (typeof anyV?.toString === "function") {
+      const s = String(anyV.toString());
+      return asUnixSeconds(s);
+    }
+  }
+
+  return 0;
+}
+
+export function pickCountdownPhase(
+  icoState: unknown
+): { label: string; startTimestamp: number; expiryTimestamp: number } | null {
+  const phases = getPhasesFromIcoState(icoState);
+  if (!phases.length) return null;
+  const now = Math.floor(Date.now() / 1000);
+
+  const active =
+    phases.find((p) => {
+      if (!p.isActive) return false;
+      const start = asUnixSeconds(p.startTime);
+      const end = asUnixSeconds(p.endTime);
+      if (start === 0 && end === 0) return true;
+      return now >= start && now <= end;
+    }) ?? phases.find((p) => p.isActive);
+
+  if (active) {
+    const start = asUnixSeconds(active.startTime);
+    const end = asUnixSeconds(active.endTime);
+    if (start && now < start) {
+      return { label: "Sale Starts In", startTimestamp: start, expiryTimestamp: end || start };
+    }
+    return { label: "Sale Ends In", startTimestamp: start || now, expiryTimestamp: end || now };
+  }
+
+  const upcoming = phases
+    .map((p) => ({ p, start: asUnixSeconds(p.startTime), end: asUnixSeconds(p.endTime) }))
+    .filter((x) => x.start > now)
+    .sort((a, b) => a.start - b.start)[0];
+  if (!upcoming) return null;
+  return {
+    label: "Sale Starts In",
+    startTimestamp: upcoming.start,
+    expiryTimestamp: upcoming.end || upcoming.start,
+  };
+}
+
+export function errorToString(e: unknown, fallback: string): string {
+  if (typeof e === "string" && e.trim()) return e;
+  if (e instanceof Error && e.message.trim()) return e.message;
+  if (e && typeof e === "object") {
+    const anyErr = e as any;
+    const simErr = anyErr?.simulationResponse?.err;
+    if (typeof simErr === "string" && simErr.trim()) return simErr;
+    if (anyErr?.simulationResponse) {
+      const errPart = anyErr.simulationResponse.err
+        ? `Simulation err: ${JSON.stringify(anyErr.simulationResponse.err)}`
+        : "Simulation failed";
+      const logs: unknown = anyErr.simulationResponse.logs;
+      if (Array.isArray(logs) && logs.length) {
+        const anchorMsgLine = logs.find(
+          (l) => typeof l === "string" && l.includes("Error Message:")
+        ) as string | undefined;
+        if (anchorMsgLine) {
+          const idx = anchorMsgLine.indexOf("Error Message:");
+          const msg = anchorMsgLine.slice(idx + "Error Message:".length).trim();
+          if (msg) return msg;
+        }
+        const tail = logs.slice(-12).join("\n");
+        return `${errPart}\n${tail}`;
+      }
+      return errPart;
+    }
+    if (typeof anyErr?.toString === "function") {
+      const s = String(anyErr.toString());
+      if (s.trim() && s !== "[object Object]") return s;
+    }
+  }
+  return fallback;
+}
+
+export function solToLamports(input: unknown): bigint {
+  const s = String(input ?? "").trim();
+  if (!s) return 0n;
+  if (s.startsWith("-")) throw new Error("Invalid SOL amount");
+  const [wholeRaw, fracRaw = ""] = s.split(".");
+  const whole = wholeRaw || "0";
+  if (!/^\d+$/.test(whole)) throw new Error("Invalid SOL amount");
+  if (fracRaw && !/^\d+$/.test(fracRaw)) throw new Error("Invalid SOL amount");
+  if (fracRaw.length > 9) throw new Error("SOL supports up to 9 decimals");
+  const frac = fracRaw.padEnd(9, "0");
+  const lamports = BigInt(whole + frac);
+  const U64_MAX = 18446744073709551615n;
+  if (lamports > U64_MAX) throw new Error("SOL amount too large");
+  return lamports;
+}
+
+export function formatSolFromLamports(lamports: number): string {
+  if (!Number.isFinite(lamports)) return "0";
+  return (lamports / 1e9).toLocaleString("en-US", { maximumFractionDigits: 9 });
+}
+
+export function formatUnits(amount: bigint, decimals: number): string {
+  const d = Number.isFinite(decimals) ? Math.max(0, Math.floor(decimals)) : 0;
+  if (d === 0) return amount.toString();
+  const neg = amount < 0n;
+  const x = neg ? -amount : amount;
+  const base = 10n ** BigInt(d);
+  const whole = x / base;
+  const frac = x % base;
+  const fracStr = frac.toString().padStart(d, "0").replace(/0+$/, "");
+  const out = `${whole.toString()}${fracStr ? `.${fracStr}` : ""}`;
+  return neg ? `-${out}` : out;
+}
+
 // import BigValue from "bignumber.js";
 // import JSBI from "jsbi";
 // // @ts-ignore
