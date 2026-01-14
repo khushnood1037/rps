@@ -88,7 +88,7 @@ const ItemList: React.FC<{ items: { title: string; detail: string }[] }> = ({ it
         {items.map((item, idx) => (
             <li key={idx}>
                 <span className="checkIcon"><CircleCheckIcon /></span>
-                <p><strong>{item.title}:</strong> {item.detail}</p>
+                <div><strong>{item.title}:</strong> {item.detail}</div>
             </li>
         ))}
     </ul>
