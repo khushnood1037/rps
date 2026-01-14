@@ -1,11 +1,10 @@
 import { Col, Container, Row } from 'react-bootstrap'
 import './FundRaising.scss'
 import CommonHeading from '../../../common/commonHeading/CommonHeading'
-import CommonButton from '../../../common/button/CommonButton'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react'
-import NiceModal from '@ebay/nice-modal-react';
-gsap.registerPlugin( useGSAP);
+import CommonButton from "../../../common/button/CommonButton";
+gsap.registerPlugin(useGSAP);
 
 const FundRaising = () => {
     useGSAP(() => {
@@ -56,11 +55,11 @@ const FundRaising = () => {
         },
 
         {
-            title: "$0.00",
+            title: "TBA",
             subTitle: "Launch Listing price"
         },
         {
-            title: "$0.00",
+            title: "TBA",
             subTitle: "Launch Market Cap"
         },
     ]
@@ -116,14 +115,12 @@ const FundRaising = () => {
 
                     </Col>
                 </Row>
-
                 <div className="fund_raising_bottom">
                     <div className='fund_raising_desc'>
-                        <h4>Every dollar raised fuels the foundation of the ROCK ecosystem from core technology to compliant market expansion, ensuring long-term growth and stability.</h4>
+                        <h4>Every early participation fuels the foundation of the Rock ecosystem from core technology to compliant market expansion, ensuring the long-term vision is upheld.</h4>
                     </div>
-                    <CommonButton title="Invest in the ROCK ICO"   onClick={() => NiceModal.show("PublicModal")}/>
+                    <CommonButton title="Join Public Sale" />
                 </div>
-
             </Container>
         </section>
     )

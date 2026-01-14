@@ -1,5 +1,4 @@
 import { Link as ScrollLink } from "react-scroll";
-
 import { Col, Container, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
@@ -102,12 +101,6 @@ const Footer = () => {
                   <img src={logo} alt="ROCK" />
                 </ScrollLink>
                 <p>POWERING GLOBAL-SCALE ROCK-PAPER-SCISSORS TOURNAMENTS ON SOLANA</p>
-                <p className="mt-4">
-                  <span style={{ display: "block", fontWeight: 600 }}>
-                    Address:
-                  </span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
-                </p>
               </div>
             </Col>
             <Col xs={12} lg={8} xl={7}>

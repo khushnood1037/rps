@@ -2,8 +2,9 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { Col, Container, Row } from "react-bootstrap"
 import CommonHeading from "../../../common/commonHeading/CommonHeading"
+import IconImg from "../../../../assets/images/rockcoin.png";
 import "./TheRoot.scss"
-
+import BuyCard from "../buyCard/BuyCard";
 const TheRoot = () => {
   const features = [
     {
@@ -15,7 +16,6 @@ const TheRoot = () => {
     {
       text: "Players pay entry fees in ROCK that directly fund the pot — creating frequent prize pools.",
     },
-
     {
       text: "Winners claim the majority; top 8 share 90% (1st: 45%, down to 8th: 1%)",
     },
@@ -26,7 +26,6 @@ const TheRoot = () => {
       text: "5% of each pot is automatically distributed to Loyalty Club members paid in Rock tokens. A percentage also goes directly to community-voted wildlife conservation efforts (on-chain & traceable)",
     },
   ]
-
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -38,8 +37,6 @@ const TheRoot = () => {
         ease: "power3.out",
       },
     });
-
-
     tl.from(
       ".theRoot_left h3, .theRoot_left .border-btn, .theRoot_left_blockBox, .theRoot_left p",
       {
@@ -50,7 +47,6 @@ const TheRoot = () => {
       },
       "-=0.6"
     );
-
     tl.from(
       ".theRoot_right h3",
       {
@@ -60,7 +56,6 @@ const TheRoot = () => {
       },
       "-=0.5"
     );
-
     tl.from(
       ".theRoot_right p",
       {
@@ -79,7 +74,6 @@ const TheRoot = () => {
       },
       "-=0.5"
     );
-
     tl.from(
       ".theRoot_right_list li",
       {
@@ -90,7 +84,6 @@ const TheRoot = () => {
       },
       "-=0.4"
     );
-
     tl.from(
       ".theRoot_right .anime",
       {
@@ -101,56 +94,51 @@ const TheRoot = () => {
       "-=0.4"
     );
   }, []);
-
   return (
     <>
       <div className="theRoot" id="theRoot">
+        <div className="theRoot_birth">
           <Container>
-        <div className="theRoot_inner">
-          <CommonHeading
-          title="The Birth of Rock Token"
-            subtitle={<>
-            <span>Rock Token (ROCK) was born from a simple yet powerful idea: transforming the timeless game of Rock-Paper-Scissors into a global, community-driven force for good. In a world where gaming often feels disconnected and profit-focused, Rock Token envisions a platform that puts players first, fosters unbreakable loyalty, and creates real-world impact.</span>
-            <span>Launched on the Solana blockchain for its speed, security, and low costs, Rock Token powers Rock Tournaments—a decentralized gaming ecosystem where everyone has an equal shot at winning, and every play contributes to something bigger.</span>
-            <span>At its core, Rock Token places community first. It is not just building a game; it is cultivating the most loyal community in the world. Through a Decentralized Autonomous Organization (DAO) structure—governed by the ownerless Rock Foundation in the Cayman Islands and managed by Lemma Solutions—players own and shape the platform. Every key decision, from game updates to charity selections, is put to a community vote, ensuring transparency and inclusivity. Whether a casual player or dedicated affiliate, participants are rewarded for participation, skill, and loyalty, turning gamers into true stakeholders.</span>
-            <span>The game will initially launch in <strong>Fun Mode</strong>, allowing players to sharpen skills, build engagement, and earn mission points for rewards. The real excitement begins in Competition Mode, where players compete for ROCK tokens following the official launch.</span>
-            </>}
-            centered
-          />
-        </div>
+            <CommonHeading className="main_heading" title="Birth of Rock Token" />
+            <Row className="theRoot_row">
+              <Col xs={12} sm={6} lg={4}>
+                <div className="theRoot_card">
+                  <img src={IconImg} alt="Birth of Rock Token" />
+                  <h3>Birth of Rock Token</h3>
+                  <p>Rock-Paper-Scissors is a timeless, skill-based classic loved by millions—simple, fast, and truly universal (world record: 10,033 players in one tournament). Yet it remains severely limited: physical events are rare, expensive, and location-bound, while casual play lacks global matchmaking, verifiable fairness, large prize pools, or real incentives. This keeps the game small, fleeting, and disconnected.</p>
+                </div>
+              </Col>
+              <Col xs={12} sm={6} lg={4}>
+                <div className="theRoot_card">
+                  <img src={IconImg} alt="Rock Token (ROCK) Was Born to Change Everything" />
+                  <h3>Rock Token (ROCK) Was Born to Change Everything</h3>
+                  <p>From one bold idea: take the world's most universal game and turn it into a <strong>global</strong>, <strong>unstoppable, player-owned force</strong>. Built on Solana for blazing speed, rock-bottom costs, and unbreakable security, <strong>Rock Token</strong> powers <strong>Rock Tournaments</strong> — a decentralized ecosystem where anyone, anywhere can compete fairly, win big, and play nonstop. What starts as childhood fun becomes serious, rewarding gameplay with massive prize pools, verifiable results, and real incentives that keep the community thriving.</p>
+                </div>
+              </Col>
+              <Col xs={12} sm={6} lg={4}>
+                <div className="theRoot_card">
+                  <img src={IconImg} alt="Player-Owned. Community-Driven. Built for Lasting Impact" />
+                  <h3>Player-Owned. Community-Driven. Built for Lasting Impact</h3>
+                  <p>Rock Token puts <strong>players first</strong> in a gaming world too often focused on profits. Governed by a transparent DAO under the independent Rock Foundation (Cayman Islands) and supported by Lemma Solutions, you decide everything — game updates, features, even charity causes — through community votes. Start in Fun Mode to practise skills and earn mission points, then dominate in Competition Mode for real <strong>ROCK</strong> rewards. Every match, every vote, every early supporter builds unbreakable loyalty, true ownership, and meaningful real-world good. This isn't just a game — it's the most dedicated global gaming community ever created.</p>
+                </div>
+              </Col>
+              <Col xs={12}>
+                <p className="theRoot_birth_text">Join early. Shape the revolution. Own the future.</p>
+              </Col>
+            </Row>
           </Container>
+        </div>
         <Container>
-          
           <CommonHeading className="main_heading" title="Rock Tournaments: The Ultimate Upgrade" />
-
-          <Row>
+          <Row className="align-items-center">
             <Col xs={12} lg={6}>
               <div className="theRoot_left">
-              <div className="theRoot_left_blockBox">
-                  <h4>The Limits Of Traditional Rock-Paper-Scissors</h4>
-                </div>
-                <div className="root_left_item">
-                  <h3>Rock-Paper-Scissors is a timeless, skill-based classic enjoyed by millions worldwide — simple, fast, and universally understood <span className="green_text">(world record tournament: 10,033 players).</span></h3>
-                  {/* <CommonButton
-                    title="Chainalysis Report - >"
-                    className="border-btn"
-                  /> */}
-                </div>
-                <div className="root_left_item">
-                  <h3>Yet it remains constrained: physical events are rare, costly, and location-bound, requiring travel and limiting participation. Everyday play offers no global matchmaking, verifiable fairness, large prize pools, or ongoing incentives — keeping the game small, fleeting, and disconnected.</h3>
-                  {/* <CommonButton
-                    title="CoinTracker  - >"
-                    className="border-btn"
-                  /> */}
-                </div>
-               
-
-               
+                <BuyCard />
               </div>
             </Col>
             <Col xs={12} lg={6} className="mt-5 mt-lg-0">
               <div className="theRoot_right">
-                <h3>The Solution</h3>
+                <h3>Core Concept</h3>
                 <p>Rock Token makes it possible to transform this classic game into a decentralized, global tournament platform on Solana.</p>
                 <h5>Nonstop competition:</h5>
                 <ul className="theRoot_right_list">
@@ -168,5 +156,4 @@ const TheRoot = () => {
     </>
   )
 }
-
 export default TheRoot

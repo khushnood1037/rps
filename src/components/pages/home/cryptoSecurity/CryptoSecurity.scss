@@ -5,6 +5,7 @@
   height: 100vh;
   padding: 20rem 0;
   overflow: hidden;
+  background: $yellowGradientCard;
 
   &_left {
     text-align: center;
@@ -14,30 +15,7 @@
       position: relative;
       padding-top: 3rem;
 
-      &::before {
-        content: "";
-        position: absolute;
-        width: 196px;
-        height: 314px;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #92c83d;
-        filter: blur(25.5rem);
-        pointer-events: none;
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        width: 196px;
-        height: 268px;
-        right: 0;
-        top: 0;
-        background: #fed400;
-        filter: blur(25.5rem);
-        pointer-events: none;
-      }
+     
 
       img {
         position: relative;

@@ -22,6 +22,7 @@ import CommonTable from "../../../ui/commonTable/CommonTable";
 import "./Dashboard.scss";
 import useCopyClipboard from "../../../../hooks/useCopyToClipboard";
 import Toaster from "../../../common/Toast";
+import CustomPagination from "../../../ui/pagination/CustomPagination";
 
 const Dashboard = () => {
   const [staticCopy] = useCopyClipboard();
@@ -260,11 +261,11 @@ const Dashboard = () => {
             {staticTransactions.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <button type="button" className="useraddress" 
-                  onClick={() => {
-                          staticCopy(item.userAddress);
-                          Toaster.success("Wallet address copied");
-                        }}>
+                  <button type="button" className="useraddress"
+                    onClick={() => {
+                      staticCopy(item.userAddress);
+                      Toaster.success("Wallet address copied");
+                    }}>
                     {item.userAddress}{" "}
                     <span>
                       <CopyIcon />
@@ -308,6 +309,15 @@ const Dashboard = () => {
             <p>Showing latest 5 transactions</p>
           </div>
         </div>
+        <CustomPagination
+        className="mt-5"
+          pageSize={10}
+          totalPage={10}
+          currentpage={1}
+          onChange={(page) => {
+            console.log(page);
+          }}
+        />
       </div>
     </>
   );

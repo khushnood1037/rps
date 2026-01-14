@@ -1,12 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
-import CommonButton from "../../../common/button/CommonButton";
-import Countdown from "../../../common/countdown/Countdown";
 import "./Banner.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import NiceModal from "@ebay/nice-modal-react";
-import BuyCard from "../buyCard/BuyCard";
-
+// import BuyCard from "../buyCard/BuyCard";
+import Coin from "../../../../assets/images/rockcoin.png";
 const Banner = () => {
 
 
@@ -82,27 +79,22 @@ const Banner = () => {
           <div className="banner_inner">
 
             <div className="banner_content">
-              <Row className="align-items-center">
-                <Col md={6}>
+              <Row className="align-items-center justify-content-center">
+                <Col md={8}>
                   <div className="banner_content_in">
                   <h1>
-                    <span>ROCK TOKEN</span>
-                    Powering Global-scale Rock-paper-scissors Tournaments On Solana
+                    <span><img src={Coin} alt="ROCK TOKEN" />ROCK TOKEN</span>
+                    Your key to every tournament + all rewards pools
                   </h1>
-                    <p>
-                      The Token uniting a global gaming community. Essential for entry into every tournament and rewards pool. Every early participation fuels the foundation and treasury of the Rock Tournaments ecosystem — from core infrastructure to global marketing, ensuring long-term utility, adoption, and stability. Proceeds support immediate post-launch readiness, driving real demand through nonstop gameplay and community expansion.
+                    <p  className="mb-4">
+                    Early buyers build the ecosystem.
                     </p>
-                    <CommonButton
-                      className="mt-16 banner-btn-anime"
-                      // onClick={() => handleNavigation()}
-                      onClick={() => NiceModal.show("PublicModal")}
-                      title="PUBLIC SALE"
-                    />
+                    <p className="text-capitalize"><strong>Secure your spot. Build the future now.</strong></p>
                   </div>
                 </Col>
-                <Col md={6}>
+                {/* <Col md={6}>
                   <BuyCard />
-                </Col>
+                </Col> */}
               </Row>
             </div> 
           </div>
