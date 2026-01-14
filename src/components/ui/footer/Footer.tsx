@@ -238,10 +238,12 @@ const Footer = () => {
                                 {item.label}
                               </div>
                             </OverlayTrigger>
-                          ) : (
+                          ) : item.path ? (
                             <Link to={item.path} className="cursor-pointer">
                               {item.label}
                             </Link>
+                          ) : (
+                            <div className="cursor-pointer">{item.label}</div>
                           )}
                         </li>
                       ))}
