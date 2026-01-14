@@ -1,5 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
-import VectorImage from "../../../../assets/images/Samurai.png";
+import VectorImage from "../../../../assets/images/rockcoin_large.png";
 import "./CryptoSecurity.scss";
 import CommonButton from "../../../common/button/CommonButton";
 import gsap from "gsap";
@@ -85,14 +85,14 @@ const CryptoSecurity = () => {
       <Container>
         <Row className="align-items-start">
           <Col xl={6} className="cryptosec_left">
-            <CommonHeading title="Why ROCK Tokens" />
+            <CommonHeading title="Why ROCK Token" />
             <div className="cryptosec_left_scanner">
               <img
                 src={VectorImage}
                 alt="face-scan-img"
                 className="face-scan-img"
-                width={300}
-                height={401}
+                width={400}
+                height={400}
               />
             </div>
           </Col>

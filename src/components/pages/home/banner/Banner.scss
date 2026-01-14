@@ -40,8 +40,17 @@
       text-transform: capitalize;
       span {
         color: $greenClr;
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 9.6rem;
+        gap: 1rem;
+        img {
+          object-fit: contain;
+          max-width: 7rem;
+          height: auto;
+          width: 100%;
+        }
       }
 
       @media (max-width: 1499px) {

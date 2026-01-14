@@ -1,7 +1,6 @@
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { lazy, Suspense } from "react";
 import Banner from "./banner/Banner";
-import Faq from "./faq/Faq.tsx";
 import "./Home.scss";
 
 const BecauseSec = lazy(() => import("./becauseSec/BecauseSec"));
@@ -21,7 +20,6 @@ const SecurityReimagined = lazy(
   () => import("./SecurityReimagined/SecurityReimagined.tsx")
 );
 
-// gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
 
   return (
@@ -30,8 +28,8 @@ const Home = () => {
         <Banner />
         <Suspense fallback={<div className="lazy-loader">Loading...</div>}>
           <SecurityReimagined />
-          <TheRoot />
           <StandardOwnership />
+          <TheRoot />
           <CryptoSecurity />
           <BecauseSec />
           <RoadmapToPeace />
@@ -39,7 +37,6 @@ const Home = () => {
           <Tokenomics />
           <FundRaising />
           <DaoSec />
-          <Faq />
         </Suspense>
       </div>
     </>

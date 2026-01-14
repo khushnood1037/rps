@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import type { RootState } from "../../../Types/reduxStateType/RootState";
+// import type { RootState } from "../../../Types/reduxStateType/RootState";
 import "./style.scss";
 
 /**LOADER COMPONENTS */
 const Loader = () => {
   /**GET STATES FROM STORE */
-  const isLoading = useSelector((state: RootState) => state?.loader?.isLoading);
+  const isLoading = useSelector((state: any) => state?.loader?.isLoading);
 
   /**IF isLoading IS TRUE SHOW LOADER*/
   if (isLoading) {
